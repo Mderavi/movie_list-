@@ -5,6 +5,7 @@ const containerStyle = {
   display: "flex",
   alignItems: "center",
   gap: "16px",
+  lineHeight: "16px",
 };
 const starContainerStyle = {
   display: "flex",
@@ -15,7 +16,7 @@ StarRating.propTypes = {
   defaultRating: PropTypes.number,
   color: PropTypes.string,
   size: PropTypes.number,
-  tooltips: PropTypes.array,
+  messages: PropTypes.array,
   className: PropTypes.string,
   onSetRating: PropTypes.func,
 };
@@ -23,10 +24,10 @@ StarRating.propTypes = {
 export default function StarRating({
   maxRating = 5,
   color = "#fcc419",
-  size = 48,
+  size = 40,
   className = "",
   onChange = () => {},
-  tooltips = [],
+  messages = [],
   allowHalf = false,
   defaultRating = 0,
   onSetRating,
@@ -60,14 +61,14 @@ export default function StarRating({
             onHoverOut={() => setTempRating(0)}
             color={color}
             size={size}
-            tooltips={tooltips[i] || null}
+            messages={messages[i] || null}
             allowHalf={allowHalf}
           />
         ))}
       </div>
       <p style={textStyle}>
-        {tooltips.length === maxRating
-          ? tooltips[tempRating ? tempRating - 1 : rating - 1]
+        {messages.length === maxRating
+          ? messages[tempRating ? tempRating - 1 : rating - 1]
           : tempRating || rating || ""}
       </p>
     </div>
