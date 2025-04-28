@@ -139,6 +139,7 @@ export default function App() {
         <Search query={query} setQuery={setQuery} />
         <NumResult movies={movies || []} />
       </NavBar>
+
       <Main>
         <Box>
           {/* {isLoding ? <Loader /> : <MoviList movies={movies} />} */}
